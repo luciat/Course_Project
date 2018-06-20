@@ -53,16 +53,16 @@ nActivity <- length(activityLabels)
 vSubject <- unique(subjectSet)
 nSubject <- length(vSubject)
 avgSet <- data.frame(matrix(NA, nrow=nActivity*nSubject, ncol=nCol+2))
-vNames <- c("Activity", "Subject")
+vNames <- c("Subject", "Activity")
 vNames <- c(vNames, colNames)
 colnames(avgSet) <- vNames
 
 # Compute the average of each variable for each activity and each subject
 ind <- 1
-for (indA in 1:nActivity) {
-        for (indS in 1:nSubject) {
-                avgSet$Activity[ind] <- activityLabels[indA]
+for (indS in 1:nSubject) {
+        for (indA in 1:nActivity) {
                 avgSet$Subject[ind] <- indS
+                avgSet$Activity[ind] <- activityLabels[indA]
                 vInd <- c(activitySet==indA & subjectSet==indS)
                 for (indC in 1:nCol) {
                         avgSet[ind, indC+2] <- mean(selectSet[vInd, indC])
@@ -72,4 +72,4 @@ for (indA in 1:nActivity) {
 }
 
 # Write average data set
-write.table(avgSet, "avgSet.txt", row.name=FALSE)
+write.csv(avgSet, "avgSet.csv", row.names=FALSE)

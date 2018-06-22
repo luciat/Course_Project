@@ -72,4 +72,4 @@ for (indS in 1:nSubject) {
 }
 
 # Write average data set
-write.csv(avgSet, "avgSet.csv", row.names=FALSE)
+write.table(avgSet, "avgSet.txt", row.names = FALSE)

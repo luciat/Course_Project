@@ -11,7 +11,7 @@ A full description of this data is available at:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-More information is also avaiable in the provided Code Book.
+More information is also available in the provided Code Book.
 
 The script run_analysis.R does the work described below:
 

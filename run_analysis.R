@@ -12,22 +12,22 @@ colNames <- as.vector(features$V2)
 # Extract measurements on the mean and standard deviation for each measurement
 cMean <- grep("mean", colNames )
 cStddev <- grep("std", colNames )
-vCol <- c(cMeans, cStddev)
+vCol <- c(cMean, cStddev)
 oCol <- order(vCol)
 vCol <- vCol[oCol]
 colNames <- colNames[vCol]
+
+setNewName <- function(x) {paste0("avg_", x)}
+colNames <- sapply(colNames, setNewName, USE.NAMES = FALSE)
+
 nCol <- length(colNames)
 
 # Extract selected columns to a new data set
 selectSet <- completeSet[vCol]
 nRow <- nrow(selectSet)
 
-# Name variables columns
+# Name variable columns
 colnames(selectSet) <- colNames
-
-# Read activity names
-activityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt")
-activityLabels <- as.vector(activityLabels$V2)
 
 # Read activities performed by the subjects
 activityTrainSet <- read.table("./UCI HAR Dataset/train/y_train.txt")
@@ -38,6 +38,8 @@ activitySet <- rbind(activityTrainSet, activityTestSet)
 activitySet <- as.vector(activitySet$V1)
 
 # Name activities
+activityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt")
+activityLabels <- as.vector(activityLabels$V2)
 activityNameSet <- activityLabels[activitySet]
 
 # Read subjects who performed the measured activities

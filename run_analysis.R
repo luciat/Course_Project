@@ -16,10 +16,6 @@ vCol <- c(cMean, cStddev)
 oCol <- order(vCol)
 vCol <- vCol[oCol]
 colNames <- colNames[vCol]
-
-setNewName <- function(x) {paste0("avg_", x)}
-colNames <- sapply(colNames, setNewName, USE.NAMES = FALSE)
-
 nCol <- length(colNames)
 
 # Extract selected columns to a new data set
@@ -27,6 +23,8 @@ selectSet <- completeSet[vCol]
 nRow <- nrow(selectSet)
 
 # Name variable columns
+setNewName <- function(x) {paste0("avg_", x)}
+colNames <- sapply(colNames, setNewName, USE.NAMES = FALSE)
 colnames(selectSet) <- colNames
 
 # Read activities performed by the subjects

@@ -5,7 +5,7 @@ Repository for the Getting and Cleaning Data Course Project
 
 The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set, generating a tidy data set that can be used for later analysis.
 
-The data used represent data collected from the accelerometer and gyroscope embedded in the smartphones used by the volunteers of the experiments while performing daily activities (walking, walking_downstairs, walking_upstairs, sitting, standing and laying).
+The data used represent data collected from the accelerometer and gyroscope embedded in the Sansung Galaxi S II smartphones worn on the waist by the volunteers of the experiments while performing daily activities (walking, walking_downstairs, walking_upstairs, sitting, standing and laying).
 
 A full description of this data is available at:
 
